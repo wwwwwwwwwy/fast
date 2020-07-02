@@ -1,0 +1,5 @@
+node_modules
+yarn-error.log
+/meos/public
+logs
+log

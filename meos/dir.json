@@ -1,0 +1,20 @@
+{
+    "static": "public",
+    "upload": "upload",
+    "download": "download",
+    "pdf": "pdf",
+    "waitPdfTime": 5000,
+    "proxy": "proxy",
+    "log": "logs",
+    "getByParams": "getByParams",
+    "postByParams": "postByParams",
+    "jsonStringArray": [
+        "isagy_saas_web",
+        "EMS_SaaS_Web",
+        "saas-version-app",
+        "environment_saas_web",
+        "engineeringSafety-saas-web",
+        "isagy_saas_web"
+    ],
+    "urlReplaceLine":false
+}

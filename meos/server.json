@@ -1,0 +1,37 @@
+{
+    "port": 8800,
+    "servers": [
+        {
+            "name": "fms",
+            "serverUrl": "http://101.254.183.196:9909/",
+            "fileUploadUrl": "http://101.254.183.196:9909/image-service/common/file_upload",
+            "fileGetUrl": "http://101.254.183.196:9909/image-service/common/file_get",
+            "systemId": "dataPlatform",
+            "secret": "9e0891a7a8c8e885"
+        }
+    ],
+    "dir":{
+        "static": "public",
+        "upload": "upload",
+        "download": "download",
+        "pdf": "pdf",
+        "waitPdfTime": 5000,
+        "proxy": "proxy",
+        "log": "logs",
+        "phantomPath":"",
+        "getByParams": "getByParams",
+        "postByParams": "postByParams",
+        "jsonStringArray": [
+            "isagy_saas_web",
+            "EMS_SaaS_Web",
+            "saas-version-app",
+            "environment_saas_web",
+            "engineeringSafety-saas-web",
+            "isagy_saas_web"
+        ],
+        "urlReplaceLine":false
+    },
+    "db":{
+        
+    }
+}

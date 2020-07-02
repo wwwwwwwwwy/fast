@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+</head>
+<script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+<style>
+    html,body,.content{
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .content{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<body>
+    <div class="content">
+        <div id="title">距离截止日期还有</div>
+        <div id="time"></div>
+    </div>
+</body>
+<script>
+
+var colors=[
+    ["#eeeeee","#393e46","#76ead7"],
+    ["#f1c5c5","#faf0af","#8bcdcd"],
+    ["#99b898","#feceab","#ff847c"],
+    ["#f4f6ff","#ffcb74","#4f8a8b"],
+]
+
+function changeColor(backgounrd,title,time) {
+    document.querySelector(".content").style.backgroundColor=backgounrd;
+    document.querySelector("#title").style.color=title;
+    document.querySelector("#time").style.color=time;
+}
+var index = 0;
+setInterval(function () {
+    if(index===(colors.length-1))index=0;
+    changeColor.apply(undefined,colors[index])
+    index++;
+},5000)
+
+setInterval(function () {
+    var target = moment("2020/10/01 00:00:00");
+    var now = moment();
+    var days = target.diff(now,"days");
+    target.subtract(days,"days");
+    var hours = target.diff(now,"hours");
+
+    target.subtract(hours,"hours");
+    var minutes = target.diff(now,"minutes");
+
+    target.subtract(minutes,"minutes");
+    var seconds = target.diff(now,"seconds");
+
+    document.querySelector("#time").innerHTML = days + "天"+hours+"小时"+minutes+"小时"+seconds+"秒";
+},1000)
+</script>
+</html>
