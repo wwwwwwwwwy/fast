@@ -1,9 +1,9 @@
 import * as path from 'path';
 import * as Koa from 'koa';
-// import * as bodyParser from 'koa-bodyparser';
+import * as bodyParser from 'koa-bodyparser';
 import koastatic from 'koa-static';
 import cors from 'koa2-cors';
-// import { createRouter } from './router/index';
+import { createRouter } from './router/index';
 import dir from './config/dir.json'
 import config from './config/server.json';
 // import { initdir } from './tool/initdir';
@@ -30,11 +30,11 @@ app.use(cors({
 app.use(accessLogger());
 
 // 添加解析参数
-// app.use(bodyParser({
-//     'formLimit': '1000mb',
-//     'jsonLimit': '100mb',
-//     'textLimit': '100mb',
-// }))
+app.use(bodyParser({
+    'formLimit': '1000mb',
+    'jsonLimit': '100mb',
+    'textLimit': '100mb',
+}))
 
 // 项目启动
 const start = async function (app: Koa) {
@@ -46,8 +46,8 @@ const start = async function (app: Koa) {
     database();
 
     // // 加载路由
-    // // let router = await createRouter(config);
-    // // app.use(router.routes()).use(router.allowedMethods());
+    let router = await createRouter();
+    app.use(router.routes()).use(router.allowedMethods());
     // // 启动监听
     app.listen(config.port);
     console.log(`端口号${config.port}启动成功`);

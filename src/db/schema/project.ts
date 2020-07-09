@@ -30,4 +30,4 @@ ProjectSchema.pre<ProjectDocument>('save', function (next) {
     next()
 })
 
-export const InterFaceModel: Model<ProjectDocument> = model("Project", ProjectSchema);
+export const ProjectModel: Model<ProjectDocument> = model("Project", ProjectSchema);

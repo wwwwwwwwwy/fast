@@ -35,4 +35,4 @@ UserSchema.pre<UserDocument>('save', function (next) {
     next()
 })
 
-export const InterFaceModel: Model<UserDocument> = model("UserModel", UserSchema);
+export const UserModel: Model<UserDocument> = model("User", UserSchema);

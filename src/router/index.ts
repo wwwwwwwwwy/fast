@@ -1,16 +1,15 @@
+import { graphiqlKoa } from 'graphql-server-koa'
 import * as Router from 'koa-router';
-// import { loadJavaPost, loadProxyJavaPost } from './post';
-// import { loadUploadFile } from './upload';
-// import { loadGetFile, loadAutoGetFile, loadAutoPostFile, loadGetPlistFile } from '../router/download';
-import { Config } from '../interface/config';
-// import { loadHtml2Pdf } from '../router/html2pdf';
+import {UserRouter} from './user';
 
-export async function createRouter(config: Config) {
+export async function createRouter() {
     const router = new Router();
-    config.servers.forEach((serverConfig) => {
-        router.get('/welcome', async (ctx) => {
-            ctx.body = "welcome";
+    router.post('/user', UserRouter)
+        .get('/graphiql',async(ctx, next)=>{
+            await graphiqlKoa({endpointURL: '/graphql'})(ctx)
         })
-    })
+        .post('/graphql',UserRouter)
+        .get('/graphql',UserRouter)
     return router;
 }
+
